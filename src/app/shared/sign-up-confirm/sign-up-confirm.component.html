@@ -1,0 +1,22 @@
+
+<div class="session mat-indigo">
+  <div class="session-content">
+    <div class="session-wrapper">
+      <md-card>
+         <div class="text-xs-center pb-1">
+          <img class="icon-image" src="assets/ico/logo.svg" alt=""/>
+        </div>
+
+        <md-card-content>
+  <h3> Para sua segurança precisamos que confirme sua conta, um email foi enviado para a conta {{email}}.<br>
+  Por favor clique no link dentro do email para continuar.<br><br>
+  Se você não receber o e-mail nos próximos 10 minutos, verifique sua<br>
+  pasta de spam ou lixo no caso de o e-mail ter sido entregue lá em vez de sua caixa de entrada.</h3>
+    <div class="pt-1 pb-1 text-xs-center">
+      Não recebeu o e-mail?<a (click)="resendEmail()" > Reenviar email</a>
+    </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</div>

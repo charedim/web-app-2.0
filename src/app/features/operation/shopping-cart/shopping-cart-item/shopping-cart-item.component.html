@@ -1,0 +1,25 @@
+ <md-list-item>
+   <md-card *ngIf="!!!removeFromCart" class="app-recivable-added">
+     <div>
+        <p class="app-client">{{item.buyer.name | wordbreak: 10 }}<br/>
+        <span class="app-nfe">{{item.e_invoice_number | wordbreak: 6  }} {{item.installment_number | wordbreak: 6  }} / {{item.total_invoice_installments | wordbreak: 6}};</span></p>
+      </div>
+
+      <div class="app-md-list-total">
+        <span> {{item.quotation_amount | currency:'BRL':true | brazilianNumberFormat }}</span> |
+        <span>{{ item.rate }} % </span>
+        <md-icon (click)="removeFromCart =! removeFromCart"> clear </md-icon></div>
+  </md-card>
+
+  <md-card *ngIf="removeFromCart"  removeFromCart class="app-remove-receivable-from-cart">
+      <button md-button class="app-btn-cancel-remove-item" (click)="removeFromCart=!removeFromCart">
+        NÃO,<p>Deixar no carrinho</p>
+      </button>
+      <div class="app-remove-item-text">
+        <p>Quer realmente remover?</p>
+      </div>
+      <button md-button  class="app-btn-remove-item" (click)="removeItem()">
+        SIM,<p>Remover do carrinho</p>
+      </button>
+ </md-card>
+</md-list-item>

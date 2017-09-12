@@ -1,0 +1,43 @@
+
+<div class="session mat-indigo">
+  <div class="session-content">
+    <div class="session-wrapper">
+      <md-card>
+        <md-card-content>
+          <form [formGroup]="signinForm" (ngSubmit)="login()">
+            <div class="text-xs-center pb-1">
+              <img class="icon-image" src="assets/ico/logo.svg" alt=""/>
+              <p class="mat-text-muted">Insira os dados abaixo e entre na sua conta</p>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-around">
+              <div class="pb-1">
+                <md-input-container style="width: 100%" >
+                  <input mdInput placeholder="Email" formControlName="email">
+                </md-input-container>
+                <small *ngIf="signinForm.controls['email'].hasError('required') && signinForm.controls['email'].touched" class="mat-text-warn">Por favor insira um nome de usuario</small>
+                <small *ngIf="signinForm.controls['email'].errors?.email && signinForm.controls['email'].touched" class="mat-text-warn">You must include a valid email address.</small>
+              </div>
+              <div class="pb-1">
+                <md-input-container  style="width: 100%">
+                  <input mdInput type="password" placeholder="Senha" formControlName="password">
+                </md-input-container>
+                <small *ngIf="signinForm.controls['password'].hasError('required') && signinForm.controls['password'].touched" class="mat-text-warn">Insira sua senha.</small>
+              </div>
+              <div class="pb-1">
+                <md-input-container  [textMask]="{mask: mask}" style="width: 100%">
+                  <input mdInput placeholder="cnpj" formControlName="cnpj">
+                </md-input-container>
+                <small *ngIf="signinForm.controls['cnpj'].hasError('required') && signinForm.controls['cnpj'].touched" class="mat-text-warn">Insira cnpj.</small>
+              </div>
+              <button md-raised-button color="primary" type="submit" [disabled]="!signinForm.valid">ENTRAR</button>
+            </div>
+            <div class="pt-1 pb-1 text-xs-center">
+              <a routerLink="/password-recovery"  routerLinkActive="active">Esqueceu sua senha?</a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a routerLink="/sign-up"  routerLinkActive="active">Cadastre uma nova conta.</a>
+            </div>
+          </form>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</div>

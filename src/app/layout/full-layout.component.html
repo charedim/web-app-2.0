@@ -1,0 +1,53 @@
+
+
+
+<td-layout-nav class="pad-none">
+
+  <div td-toolbar-content layout="row" layout-align="start center"  class="app-toolbar" flex>
+<div class="app-toolbar-company-details">
+    <img class="app-favicon" src="assets/ico/favicon.png" alt=""/>
+    <span class="text-sm">{{factoryCustomerDisplayName | wordbreak: 18}}</span>
+</div>
+    <span flex></span>
+    <button md-icon-button [md-menu-trigger-for]="user">
+      <img class="app-toolbar-user-icon" src="assets/ico/user.svg"/>
+    </button>
+  </div>
+
+ <md-menu #user="mdMenu" x-position="after" class="app-mat-menu-content">
+    <!-- <button md-menu-item class="text-md">
+      <md-icon class="text-xl">settings</md-icon>
+      Configurações do usuário
+    </button> -->
+    <button md-menu-item (click)="signout()" class="text-md">
+      <md-icon class="text-xl">exit_to_app</md-icon>
+      Sair
+    </button>
+  </md-menu>
+
+
+<md-sidenav-container class="app-sidenav-container" fullscreen>
+  <md-sidenav #sidenav mode="side" opened="true" class="app-sidenav">
+    <div flex class="md-content bgc-grey-50 app-side-nav-navigation">
+      <md-nav-list *ngFor="let item of navBarTopDetails" class="app-sidenav-top-negivation">
+        <a md-list-item routerLink="{{item.url}}" routerLinkActive="active" class="app-sidenav-menu">  <img class="app-nav-operation-icon" src="assets/ico/Operation.svg" alt=""/> {{item.title}}</a>
+      </md-nav-list>
+
+      <!-- <md-nav-list *ngFor="let item of navBarBottomDetails" class="app-sidenav-buttom-negivation">
+        <a md-list-item  id='app-intercom-btn' routerLinkActive="active" class="app-sidenav-menu">   <img class="app-nav-chat-icon" src="assets/ico/chat_live.svg" alt=""/>{{item.title}}</a>
+      </md-nav-list> -->
+    </div>
+    <!-- <td-layout-footer>
+    <td-layout-footer-inner>
+   <button md-icon-button class="td-menu-button" (click)="sidenav.toggle()" mdTooltip="Main menu">
+    <md-icon>keyboard_arrow_left</md-icon>
+   </button>
+     </td-layout-footer-inner>
+   </td-layout-footer> -->
+  </md-sidenav>
+ <div layout layout-fill class="bgc-white">
+<router-outlet></router-outlet>
+ </div>
+</md-sidenav-container>
+
+</td-layout-nav>

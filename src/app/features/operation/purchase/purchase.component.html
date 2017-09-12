@@ -1,0 +1,80 @@
+
+<div class="app-purchase-main-div">
+<div class="app-purchase-header"><md-icon (click)="canclepuchase()" class="text-sm" >close</md-icon>
+  <md-card class="app-purchase-header-text text-sm">
+    Você escolheu antecipar {{numberOfRecivable}} recebíveis no total de<br>
+   <p> {{totalSum | currency:'BRL':true | brazilianNumberFormat}}</p>
+  </md-card></div>
+  <td-expansion-panel-group>
+  <td-expansion-panel  [disabled]="false">
+    <ng-template td-expansion-panel-header>
+       <div layout="row" class="push-sm" flex>
+       <div><h3>  1 Recebíveis Adicionados</h3>
+         <span>{{numberOfRecivable}} recebíveis adicionados</span></div>
+         <span flex></span>
+         <img class="app-purchase-check-icon" src="assets/ico/check.svg" alt=""/>
+       </div>
+    </ng-template>
+  </td-expansion-panel>
+
+  <td-expansion-panel #selectedBankPanel [disabled]="level!=0" [expand]="level==0" (collapsed)="selectedBankPanel.open()"  >
+    <ng-template td-expansion-panel-header>
+    <div layout="row" class="push-sm" flex>
+    <div>
+      <h3 [style.color]="level==0 ? '#3746A3':'#6b6b6b'">  2 Conta Bancária</h3>
+      <span *ngIf="level>0">{{selectedAccount.bank | wordbreak: 15}} / {{selectedAccount.account | wordbreak: 15}} / {{selectedAccount.branch | wordbreak: 6}}</span>
+    </div>
+      <span flex></span>
+      <img *ngIf="level>0" class="app-purchase-check-icon" src="assets/ico/check.svg" alt=""/>
+    </div>
+   </ng-template>
+   <div class="md-subhead text-sm">
+         O dinheiro será transferido para esta conta bancária:
+      <md-radio-group class="app-radio-group" [(ngModel)]="selectedAccount">
+       <md-radio-button class="app-radio-button" *ngFor="let bankAccount of bankAccounts"
+        disableRipple [value]="bankAccount">
+        <p>{{bankAccount.bank  | wordbreak: 15 }}</p>
+        <p>{{bankAccount.account  | wordbreak: 15 }} /{{bankAccount.branch  | wordbreak: 6}}</p>
+      </md-radio-button>
+     </md-radio-group>
+     <br>
+     <button class="app-choose-bank-accunt-button" md-raised-button
+     [disabled]="!!!selectedAccount" (click)="chooseBankAccount()">
+     <h2>AVANÇAR</h2><p>para assinatura de contrato</p>
+   </button>
+   </div>
+  </td-expansion-panel>
+
+   <td-expansion-panel #finishPurchesPanel [disabled]="level!=1"  [expand]="level==1" class="app-expasion-panel-last" (collapsed)="finishPurchesPanel.open()">
+     <ng-template td-expansion-panel-header>
+       <div layout="row" class="push-sm" flex>
+        <div><h3 [style.color]="level==1 ? '#3746A3':'#AEAEAE'"> 3 Assinatura do contrato</h3></div>
+        <span flex></span>
+        <img *ngIf="level>1" class="app-purchase-check-icon" src="assets/ico/check.svg" alt=""/>
+      </div>
+
+       </ng-template>
+       <md-divider></md-divider>
+
+        <div class="md-subhead sign-contract">
+          Um email em nome da ClickSign (nossa parceira em assinaturas digitais) com o contrato da operação será enviado ao(s) e-mail(s):
+            {{ factorCustomersEmail }}
+                 <br/> <br/>
+                 Deve-se abrir o email, clicar no link e preencher os dados para assinar o contrato. Assim que o contrato for assinado por todos
+                  os citados acima a tranferência será realizada e você será comunicado via email pela nossa equipe.
+                  <br/><br/>
+                  O número de identificação da sua antecipação é:<br/><span class="app-uuid-operation">{{operationUuid}}</span>.
+                  <br/>
+                  <h4><span>Precisa de ajuda?</span></h4>
+                  Contate nos pelo "Chat Live" (do canto esquerdo da tela),pelo email meajuda@work.capital ou pelo telefone 3197-2414.
+                  <br/>Estamos a sua disposição.
+                  <br/><br/>
+
+          <button class="app-sign-contract-button" md-raised-button
+          [disabled]="!!!selectedAccount" (click)="chooseBankAccount()">
+          <a (click)="finishPurchase()"><h2>ENVIAR CONTRATOS</h2></a>
+        </button>
+        </div>
+  </td-expansion-panel>
+</td-expansion-panel-group>
+</div>

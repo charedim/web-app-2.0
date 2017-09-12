@@ -1,0 +1,119 @@
+<!--
+<md-toolbar color="primary">
+  <md-button-toggle-group #group="mdButtonToggleGroup">
+    <md-button-toggle value="all" (change)="resetFilter()">
+      All Invices
+    </md-button-toggle>
+    <md-button-toggle value="avilable" (change)="filterAvilableInvoicces()">
+      <md-icon>check</md-icon> Avilable
+    </md-button-toggle>
+    <md-button-toggle value="needMoreInfo" (change)="filterNeedMoreInfoInvoicces()">
+      <md-icon>help</md-icon>More Info
+    </md-button-toggle>
+  </md-button-toggle-group>
+    <span flex></span>
+<td-search-box (searchDebounce)="searchInputTerm($event)" (search)="searchInputTerm($event)" (clear)="resetFilter()"  placeholder="Search here"></td-search-box>
+</md-toolbar> -->
+
+<td-paging-bar #pagingBar [pageSizes] = "[10,15,20,40]" [total] = "totalNumOfReceviables" (change)="page($event)"  class="app-receivable-table-pagination">
+  <p class='app-recievible-table-title text-xxl'> Antecipação de recebíveis ({{totalNumOfReceviables}})</p>
+  <span td-paging-bar-label hide-xs class="text-md app-pagination">Linha por página:</span>
+  <span class="text-md app-pagination">{{pagingBar.range}}</span>
+  <span hide-xs class="text-md app-pagination">de {{pagingBar.total}}</span>
+</td-paging-bar>
+
+
+<div class="app-receivable-table">
+<!-- <app-operation-filter  (changeValue)="filterByreceivable_status($event)"></app-operation-filter> -->
+<td-data-table
+  #dataTable
+  (sortChange)="sort($event)"
+  [data]="filteredData"
+  [columns]="columns"
+  [sortable]="true"
+  [sortBy]="sortBy"
+  [sortOrder]="sortOrder"
+  class="text-xs">
+
+  <!-- <ng-template tdDataTableTemplate="receivable_status" let-value="value" let-row="row" let-column="column">
+</ng-template> -->
+
+<ng-template tdDataTableTemplate="buyer.name" let-value="value" let-row="row" let-column="column" class="app-client-column text-break text-truncate">
+<span class="app-client"> {{row.buyer.name | wordbreak: 30 }}</span><br>
+<span class="app-nfe">NF-e: {{row.e_invoice_number | wordbreak: 8  }};  R:{{row.installment_number | wordbreak: 6  }} / {{row.total_invoice_installments | wordbreak: 6}}; </span>
+</ng-template>
+
+<ng-template tdDataTableTemplate="original_amount" let-value="value" let-row="row" let-column="column" class="app-client-column text-break text-truncate">
+{{value | currency:'BRL':true | brazilianNumberFormat }}
+
+</ng-template>
+
+
+<!-- <ng-template tdDataTableTemplate="final_amount" let-value="value" let-row="row" let-column="column" >
+<div class="app-total-sum-column">
+        <span class="app-receivable-action"  *ngIf="row.receivable_status==0">
+             <span class="app-total-sum-add-receivable_status"> {{row.final_amount.toFixed(2)}}  </span>
+             <button class="app-receivable_status"  md-raised-button (click)="addItemToShoppingCart(row)">ADICIONAR AO CARRINHO </button>
+        </span>
+        <span class="app-receivable-action"  *ngIf="row.receivable_status==1">
+         <span class="app-total-sum-added-receivable_status"> {{row.final_amount.toFixed(2)}}  </span>
+         <span class="app-receivable_status-added">
+         <p class="app-added-title">ADICIONADO COM SUCESSO</p>
+         <p class="app-remove-action"> <a (click)="removeItemFromShoppingCart(row)">Remover do carrinho</a></p>
+         </span>
+        </span>
+        <span class="app-receivable_status-loading" *ngIf="row.receivable_status==2">
+         <md-icon>donut_large</md-icon>
+         <p>LOADING</p>
+        </span>
+        <span class="app-receivable_status" *ngIf="row.receivable_status==3">
+          <a>MORE INFO</a>
+        </span>
+        <span class="app-receivable_status" *ngIf="row.receivable_status==4">
+          REJECT
+        </span>
+  </div> -->
+
+  <!-- <app-receivable-receivable_status [receivable]=row></app-receivable-receivable_status> -->
+<!-- </ng-template> -->
+
+
+
+
+<ng-template tdDataTableTemplate="receivable_status" let-value="value" let-row="row" let-column="column" class="app-client-column">
+
+    <div class="text-center">
+       <button *ngIf="row.receivable_status=='APPROVED'" class="app-add-receivable_status" md-raised-button (click)="addItemToShoppingCart(row)">
+          <md-icon _ngcontent-c0="" class="mat-icon material-icons text-lg" role="img" aria-hidden="true">add_circle </md-icon>
+         ADICIONAR
+       </button>
+     </div>
+
+       <div *ngIf="row.receivable_status=='ADDED'" class="app-remove-action text-center"> <p>ADICIONADO COM SUCESSO</p><a (click)="removeItemFromShoppingCart(row)">Remover do carrinho</a> </div>
+
+
+       <div class="app-status-loading text-center" *ngIf="row.receivable_status=='ANALYSIS'">
+        <p><md-icon>donut_large</md-icon> Analisando recebível</p>
+       </div>
+
+
+<!--
+       <div  class="app-status-missing-date text-center" *ngIf="row.receivable_status=='REJECTED'"><p>Este recebível<br/><span>não possui Nf-e <md-icon class="text-xxl">help_outline</md-icon></span></p></div> -->
+
+       <div class="app-status-no-aproved text-center" *ngIf="row.receivable_status=='REJECTED'">
+       <p>Este recebível
+         <br/>
+         <span  mdTooltip="recebivel negado [saber mais]">recebivel negado</span>
+       </p>
+       </div>
+</ng-template>
+
+
+
+</td-data-table>
+</div>
+
+
+<div class="md-padding" *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
+  <h3>No results to display.</h3>
+</div>

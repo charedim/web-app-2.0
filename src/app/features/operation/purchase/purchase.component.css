@@ -1,0 +1,167 @@
+.app-choose-bank-accunt-button {
+  color: rgba(255, 255, 255, 0.87);
+  height: 65px;
+  width: calc(100% - 32px);
+  margin-left: 6px !important;
+  background-color: #2E41A2 !important;
+  border-radius: 2px;
+  bottom: 14px;
+  border-top: thin solid #feac78;
+}
+.app-choose-bank-accunt-button h2{
+  margin: 0px;
+  line-height: 21px;
+}
+.app-choose-bank-accunt-button p{
+  margin: 0px !important;
+  line-height: 19px;
+}
+.app-radio-button {
+   margin: 1em;
+  display: flex;
+  margin-left: 0px;
+}
+.app-radio-button p{
+  margin: 0px;
+  line-height: 15px;
+}
+
+td-expansion-panel-group{
+text-align: center;
+}
+
+md-card{
+  padding: 0!important;
+  margin: 0.5!important;
+  margin-bottom: 1em;
+  text-align: center;
+  padding-bottom: 2em!important;
+}
+
+.app-purchase-main-div {
+    z-index: 1;
+    background-color:#ffffff;
+    transition: 0.5s;
+    opacity: 0.98;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.app-btn-finish-purchase{
+width: 80%;
+bottom: 2em;
+color: #ffffff;
+
+}
+.app-purchase-header{
+  background-color: #243588;
+  height: 90px;
+  box-shadow: 0px 3px 5px rgba(51, 51, 51, 0.33);
+  border-radius: 0px;
+  text-align: right;
+}
+.app-purchase-header-text{
+  margin: 0px !important;
+  padding: 10px 0px 0px !important;
+  box-shadow: none !important;
+  background-color: #2e41a2 !important;
+  height: 60px;
+  color: rgba(255, 255, 255, 0.54);
+}
+.app-purchase-header md-icon{
+  color: rgba(255, 255, 255, 0.87);
+  line-height: 20px;
+  padding-right: 9px;
+  cursor: pointer;
+}
+.app-purchase-header-text p{
+  color: rgba(255, 255, 255, 0.87);
+  margin: 0px;
+  font-size: x-large;
+}
+
+td-expansion-panel{
+  margin: 0px !important;
+  box-shadow: 0px 3px 5px rgba(51, 51, 51, 0.24);
+}
+.md-subhead {
+  text-align: left;
+  padding-left: 20px;
+  margin-bottom:10px;
+  min-height: 329px;
+}
+.app-choose-bank-accunt-button span{
+  font-size: x-small;
+}
+.push-sm{
+  height: 50px;
+  box-shadow: 0px 3px 5px rgba(51, 51, 51, 0.24);
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: center;
+}
+.app-expasion-panel-last{
+  box-shadow: none;
+}
+.mat-divider {
+  border-top-color: rgba(0, 0, 0, 0) !important;
+}
+.push-sm div{
+  text-align: left;
+  height: 55px;
+}
+.push-sm div:active{
+  color:#3746A3;
+}
+.push-sm h3{
+  margin-bottom: 0px;
+  font-size: inherit;
+  line-height: 6px;
+  color: #6b6b6b;
+}
+.push-sm span{
+  font-size: x-small;
+  padding-left: 14px;
+}
+.push-sm img{
+  width: 35px;
+  padding-right: 13px;
+}
+.sign-contract{
+  font-size: small;
+  line-height: inherit;
+  padding-right: 13px;
+}
+.app-sign-contract-button{
+  color: rgba(255, 255, 255, 0.87);
+  height: 65px;
+  width: calc(100% - 6px);
+  margin-left: 0px;
+  background-color: #2E41A2 !important;
+  border-radius: 2px;
+  bottom: 14px;
+  border-top: thin solid #feac78;
+  margin-top:10px;
+}
+.app-sign-contract-button h2{
+  margin: 0px;
+  line-height: 21px;
+}
+.app-sign-contract-button p{
+  margin: 0px !important;
+  line-height: 19px;
+}
+.sign-contract span{
+  text-decoration: underline;
+  font-weight: 500;
+}
+.app-uuid-operation{
+  font-size: x-large;
+  color:  #fead7b;;
+}

@@ -1,0 +1,11 @@
+<button md-icon-button (click)="showCard=!showCard">
+   <md-icon>sort</md-icon>
+</button>
+<md-card *ngIf="showCard">
+   <md-card-content>
+<div *ngFor="let receivable_status of allreceivable_status; let i=index">
+   {{receivable_status}}
+   <md-slide-toggle color="primary" (change)="changeVal($event)" [name]="allreceivable_status[i]"  checked="true"></md-slide-toggle><br><br>
+</div>
+    </md-card-content>
+</md-card>

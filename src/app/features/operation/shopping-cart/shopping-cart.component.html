@@ -1,0 +1,30 @@
+
+<md-card class="bgc-grey-200 app-shopping-cart-content">
+  <div *ngIf="cartItems.length" class="overflow-hidden">
+ <md-card-title  class="app-md-cart-title">
+   <div layout="row" layout-align="start center" flex class="app-md-card-header">
+     <img/>
+     <span class="text-xs">Recebíveis Adicionados</span>
+     <span flex></span>
+     <div class="app-md-cart-amount-of-receivebles">{{cartItems.length}}</div>
+    </div>
+    <p class="text-sm">Espaço disponível para antecipar: <b> {{shopingCartService.supplierCreditLeft  |  currency:'BRL':true | brazilianNumberFormat}} </b></p></md-card-title>
+    <md-list>
+  <app-shopping-cart-item  *ngFor="let item of (cartItems) " [item]="item"></app-shopping-cart-item>
+   </md-list>
+  <md-card-actions class="">
+        <button  md-raised-button class="app-purchase-button text-sm" (click)="purchase()">
+        <h2>ANTECIPAR <span>{{shopingCartService.getTotalSum() | currency:'BRL':true | brazilianNumberFormat}}</span></h2>
+        </button>
+    </md-card-actions>
+  </div>
+
+
+  <div *ngIf="!!!cartItems.length" class="app-div-empty-cart">
+    <div class="app-shopping-cart-empty-text-container">
+     <p class="app-shopping-cart-empty-title">Espaço disponível para antecipar com a WK:</p>
+     <h2 class="app-shopping-cart-empty-credit-limit"> {{shopingCartService.supplierCreditLimit | currency:'BRL':true | brazilianNumberFormat}}</h2><br>
+     <p class="app-shopping-cart-empty-description">Adicione recebíveis aprovados para antecipar</p>
+   </div>
+</div>
+</md-card>

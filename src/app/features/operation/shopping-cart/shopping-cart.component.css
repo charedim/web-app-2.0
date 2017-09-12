@@ -1,0 +1,101 @@
+md-card{
+  height: 96%;
+  background-color: #fff !important;
+  border: 1px solid rgba(0, 0, 0, 0.11);
+  box-shadow: 0px 2px 5px rgba(51, 51,51,0.2);
+
+  }
+div{
+  height: inherit;
+}
+
+.app-shopping-cart-content{
+  margin: 0px;
+}
+
+
+md-card-actions{
+ width: inherit;
+ height: 18%;
+ padding: 0 !important;
+ border-top: thin solid rgba(51,51,51,0.12);
+ box-shadow: 0px -4px 6px rgba(51,51,51,0.20);
+}
+
+.app-purchase-button{
+  color: white;
+  height: auto;
+  width: calc(100% - 32px);
+  margin-left: 16px !important;
+  background-color: #2E41A2;
+  border-radius: 2px;
+  position: absolute;
+  bottom: 14px;
+  border-top:thin solid #feac78;
+}
+
+md-list{
+  height: calc(100% - 166px);
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.app-div-empty-cart{
+  position: absolute;
+  width:100%;
+}
+
+.app-shopping-cart-empty-title{
+  margin-bottom: 5px;
+  color: rgba(26, 35, 126, 0.52);
+  font-size: 9pt;
+}
+
+.app-shopping-cart-empty-description{
+  padding-right: 15%;
+  padding-left: 15%;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 11pt;
+}
+.app-shopping-cart-empty-credit-limit{
+  margin-top: 0px;
+  color: rgba(26, 35, 126, 0.87);
+}
+
+.app-shopping-cart-empty-text-container{
+  text-align: center;
+position: relative;
+top: 39%;
+height: calc(100% - 39%);
+}
+.app-md-cart-title{
+  height: 56px;
+  padding-top: 14px;
+  margin-bottom: 8px;
+}
+.app-md-cart-title p {
+  -webkit-margin-before: 2.5em;
+  -webkit-margin-after: 1em;
+  font-size: x-small;
+  text-align: center;
+  color: #3746A3;
+  font-weight: 400;
+}
+.app-md-card-header{
+  height: 17px;
+}
+.app-md-cart-amount-of-receivebles{
+  font-size: small;
+  height: initial;
+  padding: 2px 8px;
+  background-color: #FFAB40;
+  border-bottom-right-radius: 6px;
+  border-top-left-radius: 6px;
+  text-align: center;
+  width: auto;
+  color: #fff;
+  font-weight: 600;
+}
+.app-purchase-button span{
+  color:#feac78;
+}

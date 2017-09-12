@@ -1,0 +1,99 @@
+md-list-item{
+  padding-bottom: 0.15em;
+  padding-top: 0.15em;
+  display: flex;
+  height: auto;
+}
+md-card{
+  display: -webkit-inline-box;
+  width: 100%;
+}
+.app-recivable-added{
+  box-shadow: none !important;
+  margin: 0px;
+  background: transparent;
+  padding-left: 16px;
+  padding-right: 16px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.app-remove-receivable-from-cart{
+  width: 100% !important;
+  margin: 0px !important;
+  background-color: #ffffff;
+  height: inherit;
+  display: flex;
+}
+
+button{
+  height: 100%;
+  width: 25%;
+}
+.app-btn-remove-item{
+  background-color: #ff3333;
+  align-items: center;
+  box-sizing: border-box;
+  height: 48px;
+  color: #fff;
+  text-align: center;
+  width: 30%;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  box-shadow: -3px 0px 5px rgba(51, 51, 51, 0.16);
+}
+.app-btn-remove-item p{
+  font-size: 9px;
+  margin: 0px !important;
+  position: relative;
+  top: -20px;
+}
+.app-btn-cancel-remove-item{
+  background-color: #515151;
+  align-items: center;
+  box-sizing: border-box;
+  height: 48px;
+  color: #fff;
+  text-align: center;
+  width: 30%;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  box-shadow: 3px 0px 5px rgba(51, 51, 51, 0.16);
+}
+.app-btn-cancel-remove-item p{
+  font-size: 9px;
+  margin: 0px !important;
+  position: relative;
+  top: -20px;
+}
+.app-remove-item-text{
+  text-align: center;
+  width: 40%;
+  font-size: x-small;
+  align-items: center;
+  box-sizing: border-box;
+  height: 48px;
+  display: flex;
+}
+.app-remove-item-text p{
+  width: 100%;
+}
+.app-client{
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 500;
+  font-size: 11px;
+  margin:0px;
+}
+.app-nfe{
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.54);
+}
+.app-md-list-total{
+  position: absolute;
+  right: 16px;
+  line-height: 30px;
+  font-size: 11px;
+}
+.app-md-list-total md-icon{
+  font-size: 107%;
+  cursor: pointer;
+}

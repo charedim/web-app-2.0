@@ -1,0 +1,9 @@
+<div>
+    <md-icon (click)="closeDialog()">close</md-icon><br><br>
+<h3 class="tc-green-A400">
+  The total of {{numOfRecivables}} recibablce <br>
+   {{final_amount | currency:'BRL':true | brazilianNumberFormat}}<br>
+  Has been Successfully wired to your account
+  your credit left: {{leftCredit}}
+</h3>
+</div>
